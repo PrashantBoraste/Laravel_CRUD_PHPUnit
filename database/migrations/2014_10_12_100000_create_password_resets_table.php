@@ -1,5 +1,5 @@
 <?php
-
+// Migration of Password_Reset Table
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 

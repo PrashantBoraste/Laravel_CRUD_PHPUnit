@@ -1,5 +1,5 @@
 <?php
-
+// Migration of POST_Tag Table
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 

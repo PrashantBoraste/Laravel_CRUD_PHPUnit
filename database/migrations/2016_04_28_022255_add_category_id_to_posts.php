@@ -1,5 +1,5 @@
 <?php
-
+// Migration of Category_id to POST Table
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
