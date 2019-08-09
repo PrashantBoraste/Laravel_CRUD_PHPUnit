@@ -36,19 +36,6 @@ class BlogTest extends TestCase
        
        $response = $this->get('/blog');
        //$response = $this->get('/blog/'. $post->id);
-
-        //He should be able to read the blog
-        //$response->assertSee($post->title);
-        //$response->see($post->title);
-
-        
-
-        // Assert
-        // See the concert details
-        //$response->assertSee($post->title);
-        //$response->seeInDatabase('posts',$post->title);
-        //$response->assertSee('Demo_3j4gT');
-
         $this->seeInDatabase('posts',['title'=>$post->title]);
         
     }
