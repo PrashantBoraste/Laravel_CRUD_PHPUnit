@@ -73,13 +73,13 @@ To create a new test case, use the make:test Artisan command:
   
     Run Test Case :: >> phpunit --filter test_user_can_read_single_blogpost.
 
-  4)Test Case :: A user can Update BlogPost	
+  4)Test Case :: A user can Update BlogPost	using testcase
   
    Run Test Case :: >> phpunit --filter test_user_can_update_the_blogpost
   
-  5)Test Case :: A user can Delete BlogPost	
+  5)Test Case :: A user can Delete BlogPost	using testcase
   
-   Run Test Case :: >> phpunit --filter test_user_can_delete_the_blogpost   
+   Run Test Case :: >> phpunit --filter test_user_can_delete_the_blogpost.  
 	
 
 

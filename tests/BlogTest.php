@@ -86,11 +86,6 @@ class BlogTest extends TestCase
          'slug'  =>  str_random(10),
        ]);
 
-        //When user visit the blog page
-        //$response = $this->get('/blog/'.$post->id);    
-        //He can see the Blog details
-        //$this->seeInDatabase('posts',['title'=>$post->title]);
-
         $post = Post::find($post->id); 
        
         $post->title = 'Updated Title of Demo Post Created on 8thAug';
@@ -109,7 +104,6 @@ class BlogTest extends TestCase
    public function test_user_can_delete_the_blogpost(){
 
        // Search by BlogPost Title and delete
-
          $title = 'Updated Title of Demo Post Created on 8thAug';
          $found_blopost = Post::where('title', '=', $title)->first(); 
          $this->assertEquals($found_blopost->title,$title);
