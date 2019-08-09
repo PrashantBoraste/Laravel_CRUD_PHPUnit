@@ -1,5 +1,5 @@
 <?php
-// TestCase for Blog CRUD operation
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -86,6 +86,11 @@ class BlogTest extends TestCase
          'slug'  =>  str_random(10),
        ]);
 
+        //When user visit the blog page
+        //$response = $this->get('/blog/'.$post->id);    
+        //He can see the Blog details
+        //$this->seeInDatabase('posts',['title'=>$post->title]);
+
         $post = Post::find($post->id); 
        
         $post->title = 'Updated Title of Demo Post Created on 8thAug';
@@ -104,6 +109,7 @@ class BlogTest extends TestCase
    public function test_user_can_delete_the_blogpost(){
 
        // Search by BlogPost Title and delete
+
          $title = 'Updated Title of Demo Post Created on 8thAug';
          $found_blopost = Post::where('title', '=', $title)->first(); 
          $this->assertEquals($found_blopost->title,$title);
@@ -111,6 +117,31 @@ class BlogTest extends TestCase
         // $this->notSeeInDatabase('posts',['title'=>'Updated Title of Demo Post Created on 8thAug']);
         $this->notSeeInDatabase('posts',['title'=>$title]);
 
+
+
     }
+
+     /** @test */
+     public function test_user_can_search_the_blogpost(){
+
+        // Search by BlogPost Title and delete
+          //$title = 'Updated Title of Demo Post Created on 8thAug';
+          $title = 'Demo_7hgxv';
+          $found_blopost = Post::where('title', '=', $title)->first(); 
+          $this->assertEquals($found_blopost->title,$title);
+          $this->SeeInDatabase('posts',['title'=>$found_blopost->title]);
+     }
+
+      /** @test */
+      public function test_user_can_find_the_blogpost(){
+
+        // Search by BlogPost Title and delete
+          //$title = 'Updated Title of Demo Post Created on 8thAug';
+          $title = 'Demo_';
+          //$found_blopost = Post::where('title', 'LIKE', $title)->first(); 
+          $found_blopost = Post::where('title', 'LIKE', "%{$title}%")->first(); 
+          //$this->assertEquals($found_blopost->title,$title);
+          $this->SeeInDatabase('posts',['title'=>$found_blopost->title]);
+     }
 
 }
